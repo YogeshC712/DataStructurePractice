@@ -26,19 +26,24 @@ public class ThreeSum {
     }
 
     private static List<List<Integer>> threeSum(int[] nums) {
+        //Sort the array, that will help to ignore adjacent duplicate values
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
         int n = nums.length;
 
+        //From 0 till third last element
         for (int pivot = 0; pivot < n - 2; pivot++) {
+            //We are braking the flow because after this all values will be ( > 0 ) in sorted array
             if(nums[pivot] > 0){
                 break;
             }
 
+            //to ignore adjacent duplicate values
             if(pivot > 0 && nums[pivot] == nums[pivot - 1]){
                 continue;
             }
 
+            // Use two-pointer technique
             int low = pivot + 1, high = n - 1;
             while(low < high){
                 int sum = nums[pivot] + nums[low] + nums[high];
@@ -48,10 +53,12 @@ public class ThreeSum {
                 } else if (sum > 0) {
                     high--;
                 }else {
+                    // Found a triplet
                     result.add(Arrays.asList(nums[pivot], nums[low], nums[high]));
                     low++;
                     high--;
 
+                    // Skip duplicates for low and high pointers
                     while (low < high && nums[low] == nums[low - 1]){
                         low++;
                     }
