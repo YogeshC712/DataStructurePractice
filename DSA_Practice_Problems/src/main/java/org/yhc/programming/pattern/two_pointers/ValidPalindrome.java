@@ -8,11 +8,20 @@ package org.yhc.programming.pattern.two_pointers;
  */
 public class ValidPalindrome {
     public static void main(String[] args) {
-        //String input = "kaYak";
-        String input = "Madam, in Eden, Im Adam";
+        String[] testCases = {
+                "A man, a plan, a canal: Panama",
+                "race a car",
+                "1A@2!3 23!2@a1",
+                "No 'x' in Nixon",
+                "12321"
+        };
 
-        boolean result = isValidPalindrome(input);
-        System.out.println("Provide input - "+ input + " ,is it valid palindrome - " + result);
+        for (String test : testCases) {
+            System.out.println("\tString: " + test);
+            boolean result = isValidPalindrome(test);
+            System.out.println("\n\tResult: " + result);
+            System.out.println(new String(new char[100]).replace('\0', '-'));
+        }
     }
 
     private static boolean isValidPalindrome(String input) {
