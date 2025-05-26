@@ -28,13 +28,15 @@ public class ValidPalindrome {
         int left = 0, right = input.length() - 1;
 
         while(left < right){
+            //To ignore non-alphanumeric character on left side
             while(left < right && !Character.isLetterOrDigit(input.charAt(left))){
                 left++;
             }
+            //To ignore non-alphanumeric character on right side
             while(left < right && !Character.isLetterOrDigit(input.charAt(right))){
                 right--;
             }
-
+            //Return false if any check not matches.
             if(Character.toLowerCase(input.charAt(left)) != Character.toLowerCase(input.charAt(right))){
                 return false;
             }

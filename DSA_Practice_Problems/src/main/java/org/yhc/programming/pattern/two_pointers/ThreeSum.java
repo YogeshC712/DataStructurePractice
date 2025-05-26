@@ -33,7 +33,7 @@ public class ThreeSum {
 
         //From 0 till third last element
         for (int pivot = 0; pivot < n - 2; pivot++) {
-            //We are braking the flow because after this all values will be ( > 0 ) in sorted array
+            //We are breaking the flow because after this all values will be ( > 0 ) in sorted array
             if(nums[pivot] > 0){
                 break;
             }
