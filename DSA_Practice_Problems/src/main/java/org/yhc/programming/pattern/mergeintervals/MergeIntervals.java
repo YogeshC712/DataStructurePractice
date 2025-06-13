@@ -4,6 +4,14 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+/*
+We are given an array of closed intervals called intervals, where each interval has a start time and an end time and is represented as intervals[i] = [starti, endi].
+Your task is to merge the overlapping intervals and return a new output array consisting of only the non-overlapping intervals.
+Constraints:
+    1 < intervals.length <= 10^3
+    intervals[i].length == 2
+    0 <= start_i <= end_i <= 10^4
+ */
 public class MergeIntervals {
     public static void main(String[] args) {
         int [][] input = {{3, 7}, {1, 5}, {4, 6}, {11, 15}, {10, 12}, {6, 8}};
