@@ -1,9 +1,9 @@
-package org.yhc.programming.pattern.in_place_manipulation_linkedlist;
+package org.yhc.programming.pattern.linkedlist;
 
 import java.util.List;
 
 public class LinkedList {
-    ListNode head;
+    public ListNode head;
 
     public LinkedList(){
     }
@@ -37,11 +37,3 @@ public class LinkedList {
     }
 }
 
-class ListNode{
-    ListNode next;
-    int val;
-
-    public ListNode(int val){
-        this.val = val;
-    }
-}
