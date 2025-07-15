@@ -36,7 +36,7 @@ public class MergeSortedArray {
         int p2 = m - 1;
 
         for(int p = n+m-1; p >= 0; p--){
-            //p2 will be the first exhausted
+            //p2 will be exhausted first
             if(p2 < 0){
                 break;
             }
