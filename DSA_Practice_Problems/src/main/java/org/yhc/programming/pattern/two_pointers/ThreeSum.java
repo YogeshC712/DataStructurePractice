@@ -25,7 +25,49 @@ public class ThreeSum {
         }
     }
 
-    private static List<List<Integer>> threeSum(int[] nums) {
+    private static List<List<Integer>> threeSum(int[] nums){
+        //{-1, 0, 1, 2, -1, -4} => {-4, -1, -1, 0, 1, 2}
+
+        List<List<Integer>> results = new ArrayList<>();
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length - 2; i++) {
+            if(nums[i] > 0){
+                break; //because all the values in nums after this will be greater than 0 as it is sorted. We can skip the calc
+            }
+
+            if(i > 0 && nums[i] == nums[i - 1]){
+                continue;
+            }
+
+            int left = i + 1;
+            int right = nums.length - 1;
+            while (left < right){
+                int total = nums[i] + nums[left] + nums[right];
+
+                if(total < 0){
+                    left++;
+                } else if (total > 0) {
+                    right--;
+                }else {
+                    results.add(Arrays.asList(nums[i], nums[left], nums[right]));
+
+                    while (left < right && nums[left] == nums[left + 1]){
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right - 1]){
+                        right--;
+                    }
+                    left++;
+                    right--;
+                }
+            }
+        }
+
+        return results;
+    }
+
+    /*private static List<List<Integer>> threeSum(int[] nums) {
         //Sort the array, that will help to ignore adjacent duplicate values
         Arrays.sort(nums);
         List<List<Integer>> result = new ArrayList<>();
@@ -69,5 +111,5 @@ public class ThreeSum {
             }
         }
         return result;
-    }
+    }*/
 }

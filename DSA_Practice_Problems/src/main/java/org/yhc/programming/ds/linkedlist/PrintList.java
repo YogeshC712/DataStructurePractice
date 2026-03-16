@@ -1,4 +1,4 @@
-package org.yhc.programming.pattern.linkedlist;
+package org.yhc.programming.ds.linkedlist;
 
 public class PrintList {
     // Function to display the linked list
