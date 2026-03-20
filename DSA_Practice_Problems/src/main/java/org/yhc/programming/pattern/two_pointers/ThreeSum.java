@@ -26,90 +26,56 @@ public class ThreeSum {
     }
 
     private static List<List<Integer>> threeSum(int[] nums){
-        //{-1, 0, 1, 2, -1, -4} => {-4, -1, -1, 0, 1, 2}
-
         List<List<Integer>> results = new ArrayList<>();
+
+        // Sort array to enable two-pointer technique and handle duplicates. this will help to ignore adjacent duplicate values
+        //{-1, 0, 1, 2, -1, -4} => {-4, -1, -1, 0, 1, 2}
         Arrays.sort(nums);
 
-        for (int i = 0; i < nums.length - 2; i++) {
-            if(nums[i] > 0){
-                break; //because all the values in nums after this will be greater than 0 as it is sorted. We can skip the calc
+        // Fix the first element and use two pointers for the remaining two. From 0 till third last element
+        for (int pivot = 0; pivot < nums.length - 2; pivot++) {
+            //As it is sorted, all the values in nums after this will be greater than 0. We can break the loop to avoid unnecessary calculation
+            if(nums[pivot] > 0){
+                break;
             }
 
-            if(i > 0 && nums[i] == nums[i - 1]){
+            // Skip duplicate values for the first element to avoid duplicate triplets
+            if(pivot > 0 && nums[pivot] == nums[pivot - 1]){
                 continue;
             }
 
-            int left = i + 1;
+            // Initialize two pointers for the remaining subarray
+            int left = pivot + 1;
             int right = nums.length - 1;
+
+            // Use two-pointer technique to find pairs that sum to -nums[pivot]
             while (left < right){
-                int total = nums[i] + nums[left] + nums[right];
+                int total = nums[pivot] + nums[left] + nums[right];
 
                 if(total < 0){
+                    // Sum too small, move left pointer right to increase sum
                     left++;
                 } else if (total > 0) {
+                    // Sum too large, move right pointer left to decrease sum
                     right--;
                 }else {
-                    results.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    // Found a valid triplet
+                    results.add(Arrays.asList(nums[pivot], nums[left], nums[right]));
 
+                    // Skip all duplicate values to avoid duplicate triplets
                     while (left < right && nums[left] == nums[left + 1]){
                         left++;
                     }
                     while (left < right && nums[right] == nums[right - 1]){
                         right--;
                     }
+
+                    // Move both pointers to continue searching
                     left++;
                     right--;
                 }
             }
         }
-
         return results;
     }
-
-    /*private static List<List<Integer>> threeSum(int[] nums) {
-        //Sort the array, that will help to ignore adjacent duplicate values
-        Arrays.sort(nums);
-        List<List<Integer>> result = new ArrayList<>();
-        int n = nums.length;
-
-        //From 0 till third last element
-        for (int pivot = 0; pivot < n - 2; pivot++) {
-            //We are breaking the flow because after this all values will be ( > 0 ) in sorted array
-            if(nums[pivot] > 0){
-                break;
-            }
-
-            //to ignore adjacent duplicate values
-            if(pivot > 0 && nums[pivot] == nums[pivot - 1]){
-                continue;
-            }
-
-            // Use two-pointer technique
-            int low = pivot + 1, high = n - 1;
-            while(low < high){
-                int sum = nums[pivot] + nums[low] + nums[high];
-
-                if(sum < 0){
-                    low++;
-                } else if (sum > 0) {
-                    high--;
-                }else {
-                    // Found a triplet
-                    result.add(Arrays.asList(nums[pivot], nums[low], nums[high]));
-                    low++;
-                    high--;
-
-                    // Skip duplicates for low and high pointers
-                    while (low < high && nums[low] == nums[low - 1]){
-                        low++;
-                    }
-                    while (low < high && nums[high] == nums[high + 1]){
-                        high--;
-                    }
-                }
-            }
-        }
-        return result;
-    }*/
 }

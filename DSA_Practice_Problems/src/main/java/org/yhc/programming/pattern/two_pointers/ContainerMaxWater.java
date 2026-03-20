@@ -7,6 +7,7 @@ public class ContainerMaxWater {
     }
 
     private static int maxArea(int[] heights){
+        //Two pointer technique
         int left = 0;
         int right = heights.length - 1;
         int maxArea = Integer.MIN_VALUE;
@@ -14,9 +15,10 @@ public class ContainerMaxWater {
         while (left < right){
             int height = Math.min(heights[left], heights[right]);
             int width = right - left;
-            int currMax = width * height;
-            maxArea = Math.max(maxArea, currMax);
+            int currArea = width * height;
+            maxArea = Math.max(maxArea, currArea);
 
+            //Greedy algorithm
             if(heights[left] < heights[right]){
                 left++;
             }else {

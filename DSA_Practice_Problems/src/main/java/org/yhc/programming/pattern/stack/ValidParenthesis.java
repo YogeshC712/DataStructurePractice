@@ -1,4 +1,4 @@
-package org.yhc.programming.ds.stack;
+package org.yhc.programming.pattern.stack;
 
 import java.util.HashMap;
 import java.util.Map;

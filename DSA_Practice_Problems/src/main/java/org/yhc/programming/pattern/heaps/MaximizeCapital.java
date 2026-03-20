@@ -1,4 +1,4 @@
-package org.yhc.programming.ds.heaps;
+package org.yhc.programming.pattern.heaps;
 
 /*
 A busy investor with an initial capital, c, needs an automated investment program. They can select k distinct projects from a list of n projects with corresponding capitals requirements and expected profits. For a given project

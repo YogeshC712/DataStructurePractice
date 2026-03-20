@@ -1,4 +1,4 @@
-package org.yhc.programming.ds.hashmap;
+package org.yhc.programming.pattern.hashmap;
 
 import java.util.*;
 
