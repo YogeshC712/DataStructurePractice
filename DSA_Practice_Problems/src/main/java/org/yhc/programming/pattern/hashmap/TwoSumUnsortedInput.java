@@ -10,6 +10,17 @@ public class TwoSumUnsortedInput {
         System.out.println("Is target available in nums? : "+ Arrays.toString(twoSum(nums, target)));
     }
 
+    /**
+     * Pseudocode -
+     *   FOR each number in nums:
+     *     IF (target - number) exists in map:
+     *         RETURN indices
+     *     ADD number to map
+     *
+     * @param nums
+     * @param target
+     * @return
+     */
     private static int[] twoSum(int[] nums, int target){
         //Map<value, index>
         Map<Integer, Integer> map = new HashMap<>();

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MoveZeroes {
     public static void main(String[] args) {
-        int[] input = {2,0,4,0,9};
+        int[] input = {2,0,0,4,0,9};
         System.out.println("Result after moving zeroes: " + Arrays.toString(moveZeroes(input)));
     }
 

@@ -25,7 +25,7 @@ public class RemoveNthLastNode {
     public static void main(String[] args) {
         //List<Integer> input = Arrays.asList(23, 89, 10, 5, 67, 39, 70, 28);
         List<Integer> input = Arrays.asList(34, 53, 6, 95, 38, 28, 17, 63, 16, 76);
-        int n = 1;
+        int n = 4;
 
         LinkedList inputLinkedList = new LinkedList(input);
 

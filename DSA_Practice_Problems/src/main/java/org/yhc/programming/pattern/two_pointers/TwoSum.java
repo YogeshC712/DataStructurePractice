@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TwoSum {
     public static void main(String[] args) {
         int[] nums = {1,3,4,6,8,10,13};
-        int target = 50;
+        int target = 5;
 
         System.out.println("Is target available in nums? : "+ Arrays.toString(twoSum(nums, target)));
     }
@@ -17,10 +17,12 @@ public class TwoSum {
         while (left < right){
             int currSum = nums[left] + nums[right];
 
+            //found target
             if(currSum == target){
                 return new int[]{left, right};
             }
 
+            //Avoid unnecessary comparisons
             if(currSum < target){
                 left += 1;
             }else{
