@@ -1,7 +1,9 @@
 package org.yhc.programming.pattern.mergeintervals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 /*
 Given a sorted list of nonoverlapping intervals and a new interval, your task is to insert the new interval
@@ -16,41 +18,35 @@ Constraints:
 public class InsertInterval {
 
     public static void main(String[] args) {
-        int[][] input = {{1, 2}, {3, 4}, {5, 8}, {9, 15}};
-        int[] newInterval = {16, 17};
+        int[][] input = {{1, 3}, {4, 6}, {6, 7}, {8, 10}, {11, 15}};
+        int[] newInterval = {5, 8};
         //[[1,2],[3,4],[5,8],[9,15]] , [16,17]
 
         int[][] result = insertInterval(input, newInterval);
         System.out.println(Arrays.deepToString(result));
     }
 
-    private static int[][] insertInterval(int[][] input, int[] newInterval) {
-        LinkedList<int[]> result = new LinkedList<>();
-
-        int start_ni = newInterval[0];
-        int end_ni = newInterval[1];
-        int n = input.length;
+    private static int[][] insertInterval(int[][] intervals, int[] newInterval) {
+        List<int[]> merged = new ArrayList<>();
 
         int i = 0;
-        while (i <= n - 1 && input[i][0] <= start_ni){
-            result.add(input[i]);
+        int n = intervals.length;
+        while (i < n && intervals[i][1] < newInterval[0]){
+            merged.add(intervals[i]);
             i++;
         }
 
-        if(i > 0 && start_ni <= result.getLast()[1]){
-            result.getLast()[1] = Integer.max(result.getLast()[1], end_ni);
-        }else{
-            result.add(newInterval);
+        while (i < n && intervals[i][0] <= newInterval[1]){
+            newInterval[0] = Math.min(newInterval[0], intervals[i][0]);
+            newInterval[1] = Math.max(newInterval[1], intervals[i][1]);
+            i++;
         }
+        merged.add(newInterval);
 
         for (int j = i; j < n; j++) {
-            if(input[j][0] <= result.getLast()[1]){
-                result.getLast()[1] = Integer.max(result.getLast()[1], input[j][1]);
-            }else{
-                result.add(input[j]);
-            }
+            merged.add(intervals[j]);
         }
 
-        return result.toArray(new int[result.size()][]);
+        return merged.toArray(new int[merged.size()][]);
     }
 }

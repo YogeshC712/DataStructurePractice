@@ -9,6 +9,7 @@ public class PrefixSumProblem {
     }
 
     private static int[] prefixSum(int[] nums){
+        //sum(i to j) = prefix[j] - prefix[i-1]
         int n = nums.length;
         int[] prefix = new int[n + 1];
 

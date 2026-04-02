@@ -1,5 +1,6 @@
 package org.yhc.programming.pattern.mergeintervals;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
@@ -26,12 +27,13 @@ public class MergeIntervals {
          * This ensures that we are processing the intervals in the correct order, from the earliest start time to the latest,
          * to easily detect overlapping intervals as we move through the list.
          */
-        System.out.println("Input Time intervals: " + Arrays.deepToString(input));
+        //System.out.println("Input Time intervals: " + Arrays.deepToString(input));
         Arrays.sort(input, Comparator.comparingInt(a -> a[0]));
-        System.out.println("Sorted Time intervals: " + Arrays.deepToString(input));
+        //System.out.println("Sorted Time intervals: " + Arrays.deepToString(input));
 
         // we initialize a result list and add the first interval from the sorted list to it
-        LinkedList<int[]> output = new LinkedList<>();
+        //LinkedList<int[]> output = new LinkedList<>();
+        ArrayList<int[]> output = new ArrayList<>();
         output.add(input[0]);
 
         // Next, we iterate through the remaining intervals in the input list, starting from the second one

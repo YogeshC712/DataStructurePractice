@@ -1,27 +1,35 @@
 package org.yhc.lld.ratelimiter;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 public class RateLimiter {
-    private Map<String, Queue<Long>> map = new HashMap<>();
-    private final int LIMIT = 10;
-    private final int WINDOW = 60000; //1 minute
+
+    /**
+     * Sliding window Algo
+     */
+    private final int maxRequest;
+    private final long windowSizeInMillis;
+    private final Map<String, Deque<Long>> userRequests;
+
+    public RateLimiter(int maxRequest, long windowSizeInMillis){
+        this.maxRequest = maxRequest;
+        this.windowSizeInMillis = windowSizeInMillis;
+        userRequests = new HashMap<>();
+    }
 
     public synchronized boolean allowRequest(String userId){
-        Long now = System.currentTimeMillis();
+        Long currentTime = System.currentTimeMillis();
 
-        map.putIfAbsent(userId, new LinkedList<>());
-        Queue<Long> queue = map.get(userId);
+        userRequests.putIfAbsent(userId, new ArrayDeque<>());
+        Deque<Long> timestamps = userRequests.get(userId);
 
-        while (!queue.isEmpty() && now - queue.peek() > WINDOW){
-            queue.poll();
+        // Remove expired timestamps
+        while (!timestamps.isEmpty() && currentTime - timestamps.peekFirst() > windowSizeInMillis){
+            timestamps.pollFirst();
         }
 
-        if (queue.size() < LIMIT){
-            queue.offer(now);
+        if (timestamps.size() < maxRequest){
+            timestamps.addLast(currentTime);
             return true;
         }
         return false;

@@ -1,6 +1,8 @@
 package org.yhc.programming.pattern.slidingwindow;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
 Given a string, str, return the length of the longest substring without repeating characters.
@@ -32,6 +34,25 @@ public class SubstringWithoutRepeatingCharacters {
     }
 
     private static int longestSubstringWithoutRepeatingCharacters(String input){
+        Set<Character> state = new HashSet<>();
+
+        int start = 0;
+        int maxLen = 0;
+        for (int end = 0; end < input.length(); end++) {
+            char ch = input.charAt(end);
+
+            while (state.contains(ch)){
+                state.remove(input.charAt(start));
+                start++;
+            }
+            state.add(ch);
+            maxLen = Math.max(maxLen, end - start + 1);
+        }
+
+        return maxLen;
+    }
+
+    private static int longestSubstringWithoutRepeatingCharacters_other_approach(String input){
         //Check the length of the input
         if(input.length() == 0) return 0;
 
