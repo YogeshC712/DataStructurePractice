@@ -1,4 +1,4 @@
-package org.yhc.programming.pattern.dfs;
+package org.yhc.programming.pattern.dfs.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -14,6 +14,7 @@ public class TreeNode {
         this.right = null;
     }
 
+    //TODO - need to correct the logic for input - [4,1,5,null,null,3,6]
     public static TreeNode buildTree(Integer[] arr){
         if(arr.length == 0 || arr[0] == null){
             return null;

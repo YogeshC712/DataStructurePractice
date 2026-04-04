@@ -1,4 +1,4 @@
-package org.yhc.programming.pattern.dfs;
+package org.yhc.programming.pattern.dfs.tree;
 
 public class SumOfNodesRecursion {
     public static void main(String[] args) {

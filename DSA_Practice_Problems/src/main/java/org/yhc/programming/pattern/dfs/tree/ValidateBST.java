@@ -1,7 +1,4 @@
-package org.yhc.programming.pattern.dfs;
-
-import java.util.ArrayList;
-import java.util.List;
+package org.yhc.programming.pattern.dfs.tree;
 
 public class ValidateBST {
     public static void main(String[] args) {
