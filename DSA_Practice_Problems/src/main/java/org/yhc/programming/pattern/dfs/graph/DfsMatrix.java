@@ -30,7 +30,7 @@ public class DfsMatrix {
         }
 
         // check if the cell is out of bounds
-        if(r < 0 || r >= matrix.length || c < 0 || c >= matrix.length){
+        if(r < 0 || r >= matrix.length || c < 0 || c >= matrix[0].length){
             return;
         }
 
