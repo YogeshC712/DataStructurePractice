@@ -5,31 +5,30 @@ import java.util.*;
 public class RateLimiter {
 
     /**
-     * Sliding window Algo
+     * Sliding window Log Algo
      */
     private final int maxRequest;
-    private final long windowSizeInMillis;
+    private final long windowSize;
     private final Map<String, Deque<Long>> userRequests;
 
-    public RateLimiter(int maxRequest, long windowSizeInMillis){
+    public RateLimiter(int maxRequest, long windowSize){
         this.maxRequest = maxRequest;
-        this.windowSizeInMillis = windowSizeInMillis;
+        this.windowSize = windowSize;
         userRequests = new HashMap<>();
     }
 
-    public synchronized boolean allowRequest(String userId){
-        Long currentTime = System.currentTimeMillis();
+    public synchronized boolean allowRequest(String userId, long timestamp){
 
         userRequests.putIfAbsent(userId, new ArrayDeque<>());
         Deque<Long> timestamps = userRequests.get(userId);
 
         // Remove expired timestamps
-        while (!timestamps.isEmpty() && currentTime - timestamps.peekFirst() > windowSizeInMillis){
+        while (!timestamps.isEmpty() && timestamp - timestamps.peekFirst() >= windowSize){
             timestamps.pollFirst();
         }
 
         if (timestamps.size() < maxRequest){
-            timestamps.addLast(currentTime);
+            timestamps.addLast(timestamp);
             return true;
         }
         return false;
