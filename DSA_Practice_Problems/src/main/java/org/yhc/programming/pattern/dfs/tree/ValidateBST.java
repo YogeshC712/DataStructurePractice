@@ -1,5 +1,7 @@
 package org.yhc.programming.pattern.dfs.tree;
 
+import org.yhc.programming.helperds.TreeNode;
+
 public class ValidateBST {
     public static void main(String[] args) {
         Integer[] nums = {4,1,5,null,null,3,6};

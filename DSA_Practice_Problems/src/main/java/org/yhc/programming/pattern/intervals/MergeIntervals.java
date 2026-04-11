@@ -1,9 +1,8 @@
-package org.yhc.programming.pattern.mergeintervals;
+package org.yhc.programming.pattern.intervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedList;
 
 /*
 We are given an array of closed intervals called intervals, where each interval has a start time and an end time and is represented as intervals[i] = [starti, endi].

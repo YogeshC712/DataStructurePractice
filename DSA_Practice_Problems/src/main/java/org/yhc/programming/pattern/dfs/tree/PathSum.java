@@ -1,5 +1,7 @@
 package org.yhc.programming.pattern.dfs.tree;
 
+import org.yhc.programming.helperds.TreeNode;
+
 public class PathSum {
     public static void main(String[] args) {
         Integer[] nums = {4, 2, 7, 1, 3, 6, 9};

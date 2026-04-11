@@ -1,5 +1,7 @@
 package org.yhc.programming.pattern.bfs.tree;
 
+import org.yhc.programming.helperds.TreeNode;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;

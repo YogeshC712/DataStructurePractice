@@ -1,5 +1,6 @@
 package org.yhc.programming.streamapi;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -47,6 +48,16 @@ public class StreamApiPractise {
                 .distinct()
                 .toList();
         System.out.println("uniqueItems :" + uniqueItems);
+
+        //Complexity - O(n log n)
+        List<Integer> nums = List.of(10, 5, 20, 8, 25);
+        int maxTwo = nums.stream()
+                .sorted(Comparator.reverseOrder())
+                .limit(2)
+                .mapToInt(Integer::intValue)
+                .sum();
+        System.out.println("Max two numbers sum: " + maxTwo);
+
     }
 }
 

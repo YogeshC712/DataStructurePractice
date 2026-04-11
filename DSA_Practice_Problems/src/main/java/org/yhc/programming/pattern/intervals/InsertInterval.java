@@ -1,8 +1,7 @@
-package org.yhc.programming.pattern.mergeintervals;
+package org.yhc.programming.pattern.intervals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 /*
