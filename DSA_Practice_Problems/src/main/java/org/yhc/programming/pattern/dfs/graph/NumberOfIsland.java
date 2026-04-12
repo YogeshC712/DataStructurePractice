@@ -8,7 +8,7 @@ public class NumberOfIsland {
                 {1, 1, 0, 1},
                 {1, 1, 0, 1},
                 {1, 1, 0, 1},
-                {1, 1, 0, 0}
+                {0, 0, 1, 0}
         };
         System.out.println("Input grid is :  "+ Arrays.deepToString(grid));
         int result = numberOfIsland(grid);
@@ -51,6 +51,6 @@ public class NumberOfIsland {
         if(c > 0 && grid[r][c - 1] == 1){
             dfs(grid, r, c - 1, rows, cols);
         }
-        //return;
+        return;
     }
 }

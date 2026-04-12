@@ -1,4 +1,4 @@
-package org.yhc.programming.ds.linkedlist;
+package org.yhc.programming.pattern.linkedlist;
 
 public class ListNode {
     public ListNode next;

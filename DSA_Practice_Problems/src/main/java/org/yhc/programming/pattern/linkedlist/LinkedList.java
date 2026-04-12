@@ -1,4 +1,4 @@
-package org.yhc.programming.ds.linkedlist;
+package org.yhc.programming.pattern.linkedlist;
 
 import java.util.List;
 

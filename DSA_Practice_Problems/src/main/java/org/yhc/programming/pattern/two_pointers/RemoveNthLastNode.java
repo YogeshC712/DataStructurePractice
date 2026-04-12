@@ -1,8 +1,8 @@
 package org.yhc.programming.pattern.two_pointers;
 
-import org.yhc.programming.ds.linkedlist.LinkedList;
-import org.yhc.programming.ds.linkedlist.ListNode;
-import org.yhc.programming.ds.linkedlist.PrintList;
+import org.yhc.programming.pattern.linkedlist.LinkedList;
+import org.yhc.programming.pattern.linkedlist.ListNode;
+import org.yhc.programming.pattern.linkedlist.PrintList;
 
 import java.util.Arrays;
 import java.util.List;

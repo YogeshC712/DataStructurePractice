@@ -1,7 +1,7 @@
 package org.yhc.programming.pattern.in_place_manipulation_linkedlist;
 
-import org.yhc.programming.ds.linkedlist.LinkedList;
-import org.yhc.programming.ds.linkedlist.ListNode;
+import org.yhc.programming.pattern.linkedlist.LinkedList;
+import org.yhc.programming.pattern.linkedlist.ListNode;
 
 import java.util.Arrays;
 import java.util.List;

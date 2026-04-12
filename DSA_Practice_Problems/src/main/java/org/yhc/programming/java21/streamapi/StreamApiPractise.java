@@ -1,4 +1,4 @@
-package org.yhc.programming.streamapi;
+package org.yhc.programming.java21.streamapi;
 
 import java.util.Comparator;
 import java.util.List;
