@@ -3,8 +3,6 @@ package org.yhc.programming.pattern.dfs.graph;
 import java.util.*;
 
 public class CopyGraph {
-    private static  final Set<Integer> visited = new HashSet<>();
-
     public static void main(String[] args) {
         IntGraphNode node1 = new IntGraphNode(1);
         IntGraphNode node2 = new IntGraphNode(2);
@@ -34,11 +32,13 @@ public class CopyGraph {
         if(adjList.containsKey(node.value)){
             return;
         }
-
-        List<Integer> neighbors = new ArrayList<>();
+        /*List<Integer> neighbors = new ArrayList<>();
         for (IntGraphNode neighbor: node.neighbors) {
             neighbors.add(neighbor.value);
-        }
+        }*/
+        List<Integer> neighbors = Arrays.stream(node.neighbors)
+                .map(n -> n.value)
+                .toList();
         adjList.put(node.value, neighbors);
 
         for (IntGraphNode neighbor: node.neighbors) {

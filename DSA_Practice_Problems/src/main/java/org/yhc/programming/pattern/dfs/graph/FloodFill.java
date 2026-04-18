@@ -19,6 +19,7 @@ public class FloodFill {
     private static int[][] floodFill(int[][] image, Integer sr, Integer sc, Integer color){
         if (image == null || image.length == 0 || image[0].length == 0) return image;
         if (sr == null || sc == null || color == null) return image;
+
         int rows = image.length;
         int cols = image[0].length;
         if (sr < 0 || sr >= rows || sc < 0 || sc >= cols) return image;
@@ -49,5 +50,6 @@ public class FloodFill {
                 dfs(image, r, c + 1, originalColor, color, rows, cols);
             }
         }
+        return;
     }
 }
