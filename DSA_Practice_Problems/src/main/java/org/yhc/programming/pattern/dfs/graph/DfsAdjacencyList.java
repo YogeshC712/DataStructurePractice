@@ -38,5 +38,6 @@ public class DfsAdjacencyList {
             System.out.println("Neighbor : "+ neighbor);
             dfsHelper(neighbor);
         }
+        return;
     }
 }

@@ -12,6 +12,7 @@ public class SubArraySumEqualsKProblem {
 
     private static int prefixSum(int[] nums, int k){
         int subArrCount = 0;
+        // Map: prefix_sum -> frequency; Initialize with sum 0
         Map<Integer, Integer> prefixMap = new HashMap<>();
         prefixMap.put(0, 1);
 
@@ -19,9 +20,11 @@ public class SubArraySumEqualsKProblem {
         for (int num: nums) {
             prefixSum += num;
 
-            if(prefixMap.containsKey(prefixSum - k)){
-                subArrCount += prefixMap.get(prefixSum - k);
-            }
+            // Check if there's a prefix sum that makes current subarray sum = k
+            // If sum - k exists, then subarray from that point to current has sum k
+            subArrCount += prefixMap.getOrDefault(prefixSum - k, 0);
+
+            // Record current prefix sum in our frequency map
             prefixMap.put(prefixSum, prefixMap.getOrDefault(prefixSum, 0) + 1);
         }
         return subArrCount;
