@@ -8,6 +8,23 @@ public class MaximumSubArray {
         System.out.println("Maximum sum - " + max);
     }
     private static int maxSubArray(int[] nums) {
+        //Kadane’s Algorithm
+        int maxSum = nums[0];
+        int currentSum = 0;
+
+        for (int num : nums) {
+            //If current sum becomes negative - reset it; Because a negative prefix will only hurt future sums
+            if(currentSum < 0){
+                currentSum = 0;
+            }
+
+            currentSum += num;
+            maxSum = Math.max(maxSum, currentSum);
+        }
+        return maxSum;
+    }
+
+    private static int maxSubArray1(int[] nums) {
         //Kadane's Algorithm - Extend previous subArray OR start fresh from current element
         int currentSum = nums[0];
         int maxSum = nums[0];

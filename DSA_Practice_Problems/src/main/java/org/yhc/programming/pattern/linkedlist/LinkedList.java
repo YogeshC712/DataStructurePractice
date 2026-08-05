@@ -34,6 +34,7 @@ public class LinkedList {
             current = current.next;
         }
         System.out.print("NULL");
+        System.out.print("\n");
     }
 }
 

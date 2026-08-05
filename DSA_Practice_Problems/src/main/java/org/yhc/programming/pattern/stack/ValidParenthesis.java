@@ -15,10 +15,7 @@ public class ValidParenthesis {
     }
 
     private static boolean isValidParenthesis(String s){
-        Map<Character, Character> mapping = new HashMap<>();
-        mapping.put(')', '(');
-        mapping.put('}', '{');
-        mapping.put(']', '[');
+        Map<Character, Character> mapping = Map.of(')', '(', '}', '{', ']', '[');
 
         Stack<Character> stack = new Stack<>();
 

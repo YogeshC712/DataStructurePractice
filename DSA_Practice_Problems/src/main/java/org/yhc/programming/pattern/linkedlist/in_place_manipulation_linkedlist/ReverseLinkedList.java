@@ -1,10 +1,12 @@
-package org.yhc.programming.pattern.in_place_manipulation_linkedlist;
+package org.yhc.programming.pattern.linkedlist.in_place_manipulation_linkedlist;
 
 import org.yhc.programming.pattern.linkedlist.LinkedList;
 import org.yhc.programming.pattern.linkedlist.ListNode;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ReverseLinkedList {
     public static void main(String[] args) {
@@ -35,15 +37,15 @@ public class ReverseLinkedList {
         Space complexity = O(1) - No extra memory used
      */
     private static ListNode reverse(ListNode head){
-        ListNode current = head;
-        ListNode next = null;
         ListNode prev = null;
+        ListNode current = head;
+        ListNode next;
 
         while (current != null){
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            next = current.next;    //store next
+            current.next = prev;    //reverse pointer
+            prev = current;         //move prev forward
+            current = next;         //move current forward
         }
         return prev;
     }

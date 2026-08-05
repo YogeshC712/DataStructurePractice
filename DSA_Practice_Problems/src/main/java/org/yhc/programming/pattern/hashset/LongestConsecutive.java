@@ -32,7 +32,7 @@ public class LongestConsecutive {
 
         int maxLength = 0;
         // Step 2: Check for sequence starts
-        for (int num: nums) {
+        for (int num: set) {
             // Only start if it's the beginning of sequence
             if(!set.contains(num - 1)){
                 int currNum = num;
